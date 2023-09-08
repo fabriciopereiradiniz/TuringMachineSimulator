@@ -126,15 +126,15 @@ public class Program {
 
 		// header == parte de cima das transicoes
 
-		String stringPalavaSerTestada = new String(palavraSerTestada); // a string da palavra ser testada eh pro loop
-
+		// a string da palavra ser testada eh pro loop
+		boolean aceito = false;
 		int estadoAtual = estadoInicial;
 		int posicaoNaPalavra = 1; // 1 pra n começar no > marcadorInicio
 
-		while (stringPalavaSerTestada != stringPalavaSerTestada.toUpperCase()) {
+		while (aceito == false) {
 
 			for (int i = 0; i < header.length; i++) { // mudei pra header pra teste
-	
+
 				if (palavraSerTestada[posicaoNaPalavra] == header[i]) {
 
 					if (arrayEstados[estadoAtual].getEstadoFuturo(i) != 51) {
@@ -152,12 +152,13 @@ public class Program {
 						estadoAtual = arrayEstados[estadoAtual].getEstadoFuturo(i);
 
 					}
-
 				}
+
 			}
 			if (arrayEstados[estadoAtual].isFinal() == true && posicaoNaPalavra == 1) {
-				stringPalavaSerTestada = new String(palavraSerTestada);
-
+				aceito = true;
+				System.out.println();
+				System.out.println("A palavra foi aceita.");
 			}
 			breaker = +1;
 			if (breaker > 1000) {
@@ -165,9 +166,6 @@ public class Program {
 				break;
 			}
 		}
-
-		System.out.println();
-		System.out.println("A palavra foi aceita.");
 
 		System.out.println();
 		System.out.print("Fita apos as transicoes: ");
