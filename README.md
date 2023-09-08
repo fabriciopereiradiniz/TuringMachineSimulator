@@ -21,3 +21,4 @@ After compilation, execute the program by typing the following command:
 The usage instructions are within the program and are intuitive. You input basic information such as the alphabet, auxiliary alphabet, number of states, initial state, number of final states, final states, start marker, and blank symbol. After that, you fill in the transition table, and the magic happens.
 
 Follow the on-screen instructions to interact with the simulator.
+Important: **your states are organized starting from index 0**, so if, for example, you have 6 states, they are arranged as **[0],[1],[2],[3],[4],[5]**, and **not [1],[2],[3],[4],[5],[6]**!
